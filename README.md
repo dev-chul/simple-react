@@ -6,6 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+------------
+
 ### `npm run serve`
 
 Runs the app(feat. webpack5) in the development mode.\
@@ -15,6 +17,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 Runs the app(feat. webpack5) in the production mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+------------
+
+## 여기부턴 기존 crate-react-app으로 생성 시 존재했던 명령어들이다.
 
 ### `npm start`
 

@@ -6,7 +6,7 @@ module.exports = {
   
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index.bundle.js",
+    filename: "index.bundl.[hash].js",
   },
   
   devServer: {

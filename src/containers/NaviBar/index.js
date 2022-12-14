@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 //import ReactDOM from 'react-dom/client';
 
 import BottomNavigation from 'reactjs-bottom-navigation'
 import 'reactjs-bottom-navigation/dist/index.css'
 
-import { HomeOutlined, SearchOutlined, BellOutlined, MenuOutlined } from '@ant-design/icons';
+import { Menu, SubMenu, Item } from "burger-menu";
+import 'burger-menu/lib/index.css';
+import './NaviBar.css'
+
+import { HomeOutlined, SearchOutlined, BellOutlined, MenuOutlined, CalendarOutlined, CalculatorOutlined, GithubOutlined, CodeSandboxOutlined } from '@ant-design/icons';
 
 export default function NaviBar() {
   const bottomNavItems = [
@@ -27,9 +31,12 @@ export default function NaviBar() {
       title: 'Menu',
       icon: <MenuOutlined style={{ fontSize: '18px' }} />,
       activeIcon: <MenuOutlined style={{ fontSize: '18px', color: '#fff' }} />,
-      onClick: () => { alert('menu clicked!!!') }
+      onClick: () => {
+        setIsOpen(!isOpen); 
+      }
     }
-  ]
+  ];
+  const [isOpen, setIsOpen] = useState(false);
   
   return (
     <div>
@@ -38,6 +45,15 @@ export default function NaviBar() {
         defaultSelected={0}
         onItemClick={(item) => console.log(item)}
       />
+
+      <Menu className="burger-menu" isOpen={isOpen} selectedKey={'calendar'} onClose={() => setIsOpen(false)}>
+        <Item itemKey={'calendar'} text={'Calendar'} icon={<CalendarOutlined />}></Item>
+        <Item itemKey={'calc'} text={'Calculator'} icon={<CalculatorOutlined />}></Item>
+        <SubMenu title="Sites">
+          <Item itemKey={'github'} text={'Github'} icon={<GithubOutlined />}></Item>
+          <Item itemKey={'code'} text={'CodeSandbox'} icon={<CodeSandboxOutlined />}></Item>
+        </SubMenu>
+      </Menu>
     </div>
   );
 }

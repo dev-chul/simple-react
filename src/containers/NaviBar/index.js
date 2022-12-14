@@ -27,7 +27,7 @@ export default function NaviBar() {
       title: 'Menu',
       icon: <MenuOutlined style={{ fontSize: '18px' }} />,
       activeIcon: <MenuOutlined style={{ fontSize: '18px', color: '#fff' }} />,
-      onClick: () => alert('menu clicked')
+      onClick: () => { alert('menu clicked!!!') }
     }
   ]
   

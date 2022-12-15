@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
 
 import NaviBar from './containers/NaviBar';
 import Home from './containers/Home'
-import Calendar from './containers/Calendar'
+import MyCalendar from './containers/MyCalendar'
 
 /**
  * 참고사이트: https://velog.io/@velopert/react-router-v6-tutorial
@@ -15,7 +15,7 @@ function App() {
         <NaviBar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='/calendar' element={<Calendar />}></Route>
+          <Route path='/calendar' element={<MyCalendar />}></Route>
         </Routes>
       </HashRouter>
     </div>

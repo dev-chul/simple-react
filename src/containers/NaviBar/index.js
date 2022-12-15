@@ -56,7 +56,7 @@ export default function NaviBar() {
       <Menu className="burger-menu" isOpen={isOpen} selectedKey={'calendar'} onClose={() => setIsOpen(false)}>
         <>
           <Link to={"/calendar"}><Item itemKey={'calendar'} text={'Calendar'} icon={<CalendarOutlined />}></Item></Link>
-          <Item itemKey={'calc'} text={'Calculator'} icon={<CalculatorOutlined />}></Item>
+          <Link to={"/calculator"}><Item itemKey={'calc'} text={'Calculator'} icon={<CalculatorOutlined />}></Item></Link>
           <SubMenu title="Sites">
             <Item itemKey={'github'} text={'Github'} icon={<GithubOutlined />}></Item>
             <Item itemKey={'code'} text={'CodeSandbox'} icon={<CodeSandboxOutlined />}></Item>

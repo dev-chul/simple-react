@@ -4,7 +4,10 @@ import NaviBar from './containers/NaviBar';
 import Home from './containers/Home'
 import Calendar from './containers/Calendar'
 
-// https://velog.io/@velopert/react-router-v6-tutorial
+/**
+ * 참고사이트: https://velog.io/@velopert/react-router-v6-tutorial
+ * 비고: BrowserRouter VS HashRouter Vue 설정 때와 마찬가지로 새로고침에 대응하기 위함.
+ */
 function App() {
   return (
     <div className="App">

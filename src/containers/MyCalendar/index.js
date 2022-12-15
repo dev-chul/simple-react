@@ -3,6 +3,8 @@ import { EVENTS } from "./events";
 
 export default function MyCalendar() {
   return (
-    <Scheduler events={EVENTS} />
+    <div>
+        <Scheduler events={EVENTS} />
+    </div>
   );
 }

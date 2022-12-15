@@ -1,23 +1,20 @@
-import logo from './logo.svg?url';
-import './App.css';
+import { BrowserRouter, Routes, Route, HashRouter } from 'react-router-dom';
 
+import NaviBar from './containers/NaviBar';
+import Home from './containers/Home'
+import Calendar from './containers/Calendar'
+
+// https://velog.io/@velopert/react-router-v6-tutorial
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload!!!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <HashRouter>
+        <NaviBar />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/calendar' element={<Calendar />}></Route>
+        </Routes>
+      </HashRouter>
     </div>
   );
 }

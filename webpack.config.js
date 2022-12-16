@@ -40,6 +40,12 @@ module.exports = {
       },
     ],
   },
+
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    }
+  },
   
   plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
 };

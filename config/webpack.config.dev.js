@@ -1,8 +1,7 @@
+const webpack = require('webpack')
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-/**
- * 최초 원형으로 유지(사용하고 있지는 않음. (package.json 참고))
- */
+
 module.exports = {
   mode: "development",
   
@@ -45,11 +44,14 @@ module.exports = {
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
+      '@': path.resolve(__dirname, '../src/'),
     }
   },
   
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
+    new webpack.DefinePlugin({
+      APP_ENV: require('../env/dev.env')
+    }),
   ],
 };

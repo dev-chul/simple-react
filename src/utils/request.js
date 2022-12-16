@@ -38,7 +38,7 @@ function parseJSON(response) {
    * @return {object}           The response data
    */
   export default function request(url, options) {
-    return fetch(url, options)
+    return fetch((APP_ENV.BASE_API + url), options)
       .then(checkStatus)
       .then(parseJSON);
   }

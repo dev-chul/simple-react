@@ -5,7 +5,7 @@ module.exports = {
   mode: "development",
   
   output: {
-    path: path.join(__dirname, "/dist"),
+    path: path.join(__dirname, "../dist"),
     filename: "index.bundl.[hash].js",
   },
   

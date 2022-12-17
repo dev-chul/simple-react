@@ -20,5 +20,6 @@ module.exports = {
         'no-undef': [0],
         'import/no-unresolved': [0],
         'jsx-a11y/anchor-is-valid': [0],
+        'global-require': [0],
     },
 };

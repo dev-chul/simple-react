@@ -9,7 +9,14 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   mode: "development",
   
   plugins: [
-    new HtmlWebpackPlugin({ template: "./public/index.html" }),
+    new HtmlWebpackPlugin({
+      template: "./public/index.html",
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+    }),
     new webpack.DefinePlugin({
       APP_ENV: require('../env/dev.env')
     }),

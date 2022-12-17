@@ -5,15 +5,20 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const baseWebpackConfig = require('./webpack.config.base');
 
-const prodWebpackConfig = merge(baseWebpackConfig, {
-  mode: "production",
+const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: "development",
+  
+  devServer: {
+    port: 3000,
+    liveReload: true,
+  },
   
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new webpack.DefinePlugin({
-      APP_ENV: require('../env/prod.env')
+      APP_ENV: require('../env/dev.env')
     }),
   ],
 });
 
-module.exports = prodWebpackConfig;
+module.exports = devWebpackConfig;

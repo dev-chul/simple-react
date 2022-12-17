@@ -1,52 +1,12 @@
-const webpack = require('webpack')
 const path = require("path");
+const webpack = require('webpack')
+const { merge } = require("webpack-merge");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports = {
-  mode: "development",
-  
-  output: {
-    path: path.join(__dirname, "../dist"),
-    filename: "index.bundl.[hash].js",
-  },
-  
-  devServer: {
-    port: 3000,
-    liveReload: true,
-  },
-  
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /nodeModules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
-      },
-      {
-        test: /\.svg$/i,
-        type: 'asset',
-        resourceQuery: /url/, // *.svg?url
-      },
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-        resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
-        use: ['@svgr/webpack'],
-      },
-    ],
-  },
+const baseWebpackConfig = require('./webpack.config.base');
 
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, '../src/'),
-    }
-  },
+const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: "development",
   
   plugins: [
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
@@ -54,4 +14,6 @@ module.exports = {
       APP_ENV: require('../env/dev.env')
     }),
   ],
-};
+});
+
+module.exports = devWebpackConfig;

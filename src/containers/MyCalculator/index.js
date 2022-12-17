@@ -1,9 +1,9 @@
-import { ReactCalculator } from "simple-react-calculator";
+import { ReactCalculator } from 'simple-react-calculator';
 
-export default function MyCalculator () {
+export default function MyCalculator() {
     return (
         <div>
             <ReactCalculator />
         </div>
-    )
+    );
 }

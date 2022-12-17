@@ -18,5 +18,6 @@ module.exports = {
         'no-undef': [0],
         'react/self-closing-comp': [0],
         'react/jsx-curly-brace-presence': [0],
+        'import/no-unresolved': [0],
     },
 };

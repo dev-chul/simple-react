@@ -6,11 +6,12 @@ import { EVENTS } from './events';
 import request from '@/utils/request';
 
 export default function MyCalendar() {
-    const [setData] = useState([]);
+    const [data, setData] = useState([]);
 
     const getEventsData = () => {
         request('/events', {}).then(res => {
             setData(res);
+            console.log(data);
         });
     };
 

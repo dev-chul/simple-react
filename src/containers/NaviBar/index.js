@@ -44,14 +44,14 @@ export default function NaviBar() {
             title: 'Bitcoin',
             icon: (
                 <img
-                    src="./btc.png"
+                    src="./images/btc.png"
                     style={{ width: '1em', height: '1em' }}
                     alt="btc"
                 />
             ),
             activeIcon: (
                 <img
-                    src="./btc_active.png"
+                    src="./images/btc_active.png"
                     style={{ width: '1em', height: '1em' }}
                     alt="btc"
                 />

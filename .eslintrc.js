@@ -22,5 +22,6 @@ module.exports = {
         'jsx-a11y/anchor-is-valid': [0],
         'global-require': [0],
         'prefer-destructuring': [0],
+        'spaced-comment': [0],
     },
 };

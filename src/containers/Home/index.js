@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import logo from '../../logo.svg?url';
 import '../../App.css';
 
 import request from '@/utils/request';
+import { AddComma } from '@/utils/StringUtils';
 
 export default function Home() {
     /**
@@ -11,6 +12,11 @@ export default function Home() {
      * 변수 상태를 변경할 때 사용할 setter function과 함께 설정되어 활용된다.
      */
     const [name, setName] = useState('Noname');
+    const [currency, setCurrency] = useState(0);
+    const [ticker, setTicker] = useState(0);
+
+    const webSocketUrl = 'wss://stream.binance.com:443/ws/btcusdt@ticker';
+    const ws = useRef(null);
 
     const sampleRequest = () => {
         request('/hello', {}).then(res => {
@@ -18,6 +24,24 @@ export default function Home() {
                 setName(res.name);
             }
         });
+    };
+
+    const getCurrency = () => {
+        fetch(
+            'https://quotation-api-cdn.dunamu.com/v1/forex/recent?codes=FRX.KRWUSD',
+            {},
+        )
+            .then(data => {
+                return data.json();
+            })
+            .then(data => {
+                setCurrency(data[0].basePrice);
+            });
+    };
+
+    const getCurrencyBTC = () => {
+        const value = String(currency * ticker);
+        return AddComma(value);
     };
 
     /**
@@ -28,7 +52,29 @@ export default function Home() {
      */
     useEffect(() => {
         sampleRequest();
+        getCurrency();
+
+        ws.current = new WebSocket(webSocketUrl);
+        ws.current.onopen = () => {
+            console.log('onopen');
+        };
+        ws.current.onclose = error => {
+            console.log('onclose');
+            console.error(error);
+        };
+        ws.current.onerror = error => {
+            console.log('onerror');
+            console.error(error);
+        };
+        ws.current.onmessage = evt => {
+            const data = JSON.parse(evt.data);
+            setTicker(data.c);
+        };
     }, []);
+
+    //useEffect(() => {
+    //console.log(ticker);
+    //}, [ticker]);
 
     return (
         <div>
@@ -38,6 +84,7 @@ export default function Home() {
                 <a className="App-link" href="#" rel="noopener noreferrer">
                     Learn React
                 </a>
+                <p>BTC/USDT : {getCurrencyBTC()}</p>
             </header>
         </div>
     );

@@ -10,7 +10,6 @@ import './NaviBar.css';
 
 import {
     HomeOutlined,
-    SearchOutlined,
     BellOutlined,
     MenuOutlined,
     CalendarOutlined,
@@ -22,7 +21,9 @@ import {
 export default function NaviBar() {
     const navigate = useNavigate();
     const handleOnClick = useCallback(
-        () => navigate('/', { replace: true }),
+        appId => {
+            navigate(`/${appId}`, { replace: true });
+        },
         [navigate],
     );
 
@@ -36,15 +37,28 @@ export default function NaviBar() {
                 <HomeOutlined style={{ fontSize: '18px', color: '#fff' }} />
             ),
             onClick: () => {
-                handleOnClick();
+                handleOnClick('');
             },
         },
         {
-            title: 'Search',
-            icon: <SearchOutlined style={{ fontSize: '18px' }} />,
-            activeIcon: (
-                <SearchOutlined style={{ fontSize: '18px', color: '#fff' }} />
+            title: 'Bitcoin',
+            icon: (
+                <img
+                    src="./btc.png"
+                    style={{ width: '1em', height: '1em' }}
+                    alt="btc"
+                />
             ),
+            activeIcon: (
+                <img
+                    src="./btc_active.png"
+                    style={{ width: '1em', height: '1em' }}
+                    alt="btc"
+                />
+            ),
+            onClick: () => {
+                handleOnClick('bitcoin');
+            },
         },
         {
             title: 'Notifications',

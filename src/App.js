@@ -4,6 +4,7 @@ import NaviBar from './containers/NaviBar';
 import Home from './containers/Home';
 import MyCalendar from './containers/MyCalendar';
 import MyCalculator from './containers/MyCalculator';
+import Bitcoin from './containers/Bitcoin';
 
 /**
  * 참고사이트: https://velog.io/@velopert/react-router-v6-tutorial
@@ -16,6 +17,7 @@ function App() {
                 <NaviBar />
                 <Routes>
                     <Route path="/" element={<Home />}></Route>
+                    <Route path="/bitcoin" element={<Bitcoin />}></Route>
                     <Route path="/calendar" element={<MyCalendar />}></Route>
                     <Route
                         path="/calculator"

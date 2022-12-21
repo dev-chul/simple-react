@@ -87,6 +87,7 @@ export default function Home() {
                     Learn React
                 </a>
                 <p>BTC/USDT : {getCurrencyBTC()}</p>
+                <div>(* 바이낸스 정보)</div>
             </header>
         </div>
     );

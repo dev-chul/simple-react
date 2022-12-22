@@ -23,5 +23,6 @@ module.exports = {
         'global-require': [0],
         'prefer-destructuring': [0],
         'spaced-comment': [0],
+        'no-use-before-define': [0],
     },
 };

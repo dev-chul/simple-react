@@ -1,6 +1,7 @@
 //import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { plusCounter } from '../../modules/counter';
+import { getToken } from '../../modules/auth';
 
 import request, { urlencoded } from '@/utils/request';
 
@@ -10,14 +11,15 @@ export default function Home() {
     const dispatch = useDispatch();
 
     const { count } = useSelector(state => state.counter);
+    const { accessToken } = useSelector(state => state.auth);
 
     const increse = () => {
         // store에 있는 state 바꾸는 함수 실행
         dispatch(plusCounter());
+        doLogin();
     };
 
     const doLogin = () => {
-        console.log('doLogin!!');
         const formData = {
             grant_type: 'password',
             username: 'user',
@@ -37,39 +39,46 @@ export default function Home() {
             },
             'oauth',
         ).then(res => {
-            console.log(res);
+            dispatch(getToken(res.access_token));
         });
     };
 
-    return (
-        <div className="homeBody">
-            <div id="wrap">
-                <div id="icon">
-                    <i className="fas fa-user"></i>
+    if (accessToken !== '') {
+        return <div className="homeBody">안녕하세요.</div>;
+    }
+
+    if (accessToken === '') {
+        return (
+            <div className="homeBody">
+                <div id="wrap">
+                    <div id="icon">
+                        <i className="fas fa-user"></i>
+                    </div>
+                    <div className="login">
+                        <h3 className="active">Sign In</h3>
+                        <h3>Sign Up</h3>
+                    </div>
+                    <form action="">
+                        <input
+                            type="text"
+                            className="text"
+                            name="username"
+                            placeholder="Username"
+                        />
+                        <input
+                            type="text"
+                            className="text"
+                            name="password"
+                            placeholder="Password"
+                        />
+                    </form>
+                    <button className="signin" type="button" onClick={increse}>
+                        Sign In {count}
+                    </button>
+                    <h5>Forget your password?</h5>
+                    <h5>AccessToken : {accessToken}</h5>
                 </div>
-                <div className="login">
-                    <h3 className="active">Sign In</h3>
-                    <h3>Sign Up</h3>
-                </div>
-                <form action="">
-                    <input
-                        type="text"
-                        className="text"
-                        name="username"
-                        placeholder="Username"
-                    />
-                    <input
-                        type="text"
-                        className="text"
-                        name="password"
-                        placeholder="Password"
-                    />
-                </form>
-                <button className="signin" type="button" onClick={increse}>
-                    Sign In {count}
-                </button>
-                <h5>Forget your password?</h5>
             </div>
-        </div>
-    );
+        );
+    }
 }

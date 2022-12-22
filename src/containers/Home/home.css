@@ -143,9 +143,9 @@
 }
 
 .typing.animate::before {
-    content: "Hello, I'm Jung Chul";
+    content: "Hello, I'm CHUL. ";
     animation: type2 1s steps(4) 3s forwards,
-        type3 3s steps(22, end) 6s forwards;
+        type3 3s steps(17, end) 6s forwards;
 }
 
 @keyframes type {
@@ -159,23 +159,23 @@
 
 @keyframes type2 {
     from {
-        width: 17ch;
-        content: "Hello, I'm Jung Chul. ";
+        width: 12ch;
+        content: "Hello, I'm CHUL. ";
     }
     to {
-        width: 21ch;
-        content: "Hello, I'm Jung Chul. ";
+        width: 16ch;
+        content: "Hello, I'm CHUL. ";
     }
 }
 
 @keyframes type3 {
     from {
-        width: 22ch;
-        content: "Hello, I'm Jung Chul. Welcome to my Website!";
+        width: 17ch;
+        content: "Hello, I'm CHUL. Welcome to my Website!";
     }
     to {
-        width: 44ch;
-        content: "Hello, I'm Jung Chul. Welcome to my Website!";
+        width: 39ch;
+        content: "Hello, I'm CHUL. Welcome to my Website!";
     }
 }
 
@@ -187,9 +187,9 @@
 
 @keyframes delete {
     from {
-        width: 21ch;
+        width: 17ch;
     }
     to {
-        width: 16ch;
+        width: 12ch;
     }
 }

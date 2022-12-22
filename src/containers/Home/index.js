@@ -44,7 +44,11 @@ export default function Home() {
     };
 
     if (accessToken !== '') {
-        return <div className="homeBody">안녕하세요.</div>;
+        return (
+            <div className="homeBody welcome">
+                <div className="typing animate"></div>
+            </div>
+        );
     }
 
     if (accessToken === '') {

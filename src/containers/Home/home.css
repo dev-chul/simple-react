@@ -3,7 +3,9 @@
     height: 100%;
     margin: 0;
 }
-
+/*
+ * CodePen Home Mobile Login Page by Kevin
+*/
 /*CSS Rules for Body and Screen*/
 .homeBody {
     display: flex;
@@ -111,4 +113,83 @@
 
 .homeBody h5:hover {
     cursor: pointer;
+}
+
+/*
+ * CodePen Home Typing with Typo Correction and Pause by Christine Mi
+*/
+.welcome {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #323232;
+}
+
+.typing.animate {
+    width: 21ch;
+    border-right: 0.1em solid black;
+    font-family: monospace;
+    font-size: 1em;
+    animation: type 2.5s steps(20), writer 1s infinite alternate,
+        delete 0.5s steps(5) 2.5s, type2 1s steps(4) 3s forwards,
+        type3 3s steps(22, end) 6s forwards;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.typing.animate::before {
+    content: "Hello, I'm Jung Chul";
+    animation: type2 1s steps(4) 3s forwards,
+        type3 3s steps(22, end) 6s forwards;
+}
+
+@keyframes type {
+    from {
+        width: 0;
+    }
+    to {
+        width: 21ch;
+    }
+}
+
+@keyframes type2 {
+    from {
+        width: 17ch;
+        content: "Hello, I'm Jung Chul. ";
+    }
+    to {
+        width: 21ch;
+        content: "Hello, I'm Jung Chul. ";
+    }
+}
+
+@keyframes type3 {
+    from {
+        width: 22ch;
+        content: "Hello, I'm Jung Chul. Welcome to my Website!";
+    }
+    to {
+        width: 44ch;
+        content: "Hello, I'm Jung Chul. Welcome to my Website!";
+    }
+}
+
+@keyframes writer {
+    50% {
+        border-color: transparent;
+    }
+}
+
+@keyframes delete {
+    from {
+        width: 21ch;
+    }
+    to {
+        width: 16ch;
+    }
 }

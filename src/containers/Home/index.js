@@ -42,7 +42,7 @@ export default function Home() {
     };
 
     return (
-        <div className="homeBody App-header">
+        <div className="homeBody">
             <div id="wrap">
                 <div id="icon">
                     <i className="fas fa-user"></i>

@@ -2,9 +2,9 @@ import React, { useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import BottomNavigation from 'reactjs-bottom-navigation';
-import 'reactjs-bottom-navigation/dist/index.css';
 
 import { Menu, SubMenu, Item } from 'burger-menu';
+
 import 'burger-menu/lib/index.css';
 import './NaviBar.css';
 

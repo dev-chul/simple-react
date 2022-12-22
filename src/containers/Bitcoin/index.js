@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import logo from '../../logo.svg?url';
 import '../../App.css';
+import './bitcoin.css';
 
 import request from '@/utils/request';
 import { AddComma } from '@/utils/StringUtils';
@@ -80,8 +81,8 @@ export default function Home() {
     //}, [ticker]);
 
     return (
-        <div>
-            <header className="App-header">
+        <div className="bitcoin">
+            <div>
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
                     This app is made using React. <br /> By. {name}
@@ -91,7 +92,7 @@ export default function Home() {
                 </a>
                 <p>BTC/USDT : {getCurrencyBTC()}</p>
                 <div>(* 바이낸스 정보)</div>
-            </header>
+            </div>
         </div>
     );
 }

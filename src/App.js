@@ -1,6 +1,6 @@
 import { Routes, Route, HashRouter } from 'react-router-dom';
 
-import NaviBar from './containers/NaviBar';
+import NaviBar from './components/NaviBar';
 import Home from './containers/Home';
 import MyCalendar from './containers/MyCalendar';
 import MyCalculator from './containers/MyCalculator';
@@ -15,15 +15,20 @@ function App() {
         <div className="App">
             <HashRouter>
                 <NaviBar />
-                <Routes>
-                    <Route path="/" element={<Home />}></Route>
-                    <Route path="/bitcoin" element={<Bitcoin />}></Route>
-                    <Route path="/calendar" element={<MyCalendar />}></Route>
-                    <Route
-                        path="/calculator"
-                        element={<MyCalculator />}
-                    ></Route>
-                </Routes>
+                <div className="App-Wrap">
+                    <Routes>
+                        <Route path="/" element={<Home />}></Route>
+                        <Route path="/bitcoin" element={<Bitcoin />}></Route>
+                        <Route
+                            path="/calendar"
+                            element={<MyCalendar />}
+                        ></Route>
+                        <Route
+                            path="/calculator"
+                            element={<MyCalculator />}
+                        ></Route>
+                    </Routes>
+                </div>
             </HashRouter>
         </div>
     );

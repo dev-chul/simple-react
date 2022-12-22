@@ -9,7 +9,7 @@ export default function MyCalendar() {
     const [data, setData] = useState([]);
 
     const getEventsData = () => {
-        request('/events', {}).then(res => {
+        request('/events', {}, 'cdn').then(res => {
             setData(res);
             console.log(data);
         });

@@ -3,7 +3,10 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 
 import { PersistGate } from 'redux-persist/integration/react';
-import storage from 'redux-persist/lib/storage';
+// 정보를 localStorage에 저장, 브라우저를 종료해도 남음
+//import storage from 'redux-persist/lib/storage';
+// 정보를 sessionStorage에 저장, 브라우저를 종료하면 사라짐.
+import storage from 'redux-persist/lib/storage/session';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

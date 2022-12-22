@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSelector } from 'react-redux';
 
 import logo from '../../logo.svg?url';
 import '../../App.css';
@@ -14,6 +15,8 @@ export default function Home() {
     const [name, setName] = useState('Noname');
     const [currency, setCurrency] = useState(0);
     const [ticker, setTicker] = useState(0);
+
+    const { count } = useSelector(state => state.counter);
 
     const webSocketUrl = 'wss://stream.binance.com:443/ws/btcusdt@ticker';
     const ws = useRef(null);
@@ -84,7 +87,7 @@ export default function Home() {
                     This app is made using React. <br /> By. {name}
                 </p>
                 <a className="App-link" href="#" rel="noopener noreferrer">
-                    Learn React
+                    Learn React {count}
                 </a>
                 <p>BTC/USDT : {getCurrencyBTC()}</p>
                 <div>(* 바이낸스 정보)</div>

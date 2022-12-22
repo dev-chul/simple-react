@@ -1,10 +1,21 @@
 //import React, { useState, useEffect, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { plusCounter } from '../../modules/counter';
 
 import request, { urlencoded } from '@/utils/request';
 
 import './home.css';
 
 export default function Home() {
+    const dispatch = useDispatch();
+
+    const { count } = useSelector(state => state.counter);
+
+    const increse = () => {
+        // store에 있는 state 바꾸는 함수 실행
+        dispatch(plusCounter());
+    };
+
     const doLogin = () => {
         console.log('doLogin!!');
         const formData = {
@@ -54,8 +65,8 @@ export default function Home() {
                         placeholder="Password"
                     />
                 </form>
-                <button className="signin" type="button" onClick={doLogin}>
-                    Sign In
+                <button className="signin" type="button" onClick={increse}>
+                    Sign In {count}
                 </button>
                 <h5>Forget your password?</h5>
             </div>

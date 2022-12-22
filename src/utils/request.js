@@ -20,6 +20,7 @@ function parseJSON(response) {
  * @return {object|undefined} Returns either the response, or throws an error
  */
 function checkStatus(response) {
+    console.log(response);
     if (response.status >= 200 && response.status < 300) {
         return response;
     }
@@ -37,8 +38,21 @@ function checkStatus(response) {
  *
  * @return {object}           The response data
  */
-export default function request(url, options) {
-    return fetch(APP_ENV.BASE_API + url, options)
-        .then(checkStatus)
-        .then(parseJSON);
+export default function request(uri, options, type) {
+    let url = '';
+    if (type === 'oauth') url = APP_ENV.BASE_OAUTH + uri;
+    else if (type === 'cdn') url = APP_ENV.BASE_CDN + uri;
+    else url = APP_ENV.BASE_API + uri;
+    return fetch(url, options).then(checkStatus).then(parseJSON);
+}
+
+export function urlencoded(data) {
+    let formBody = [];
+    Object.keys(data).forEach(key => {
+        const encodedKey = encodeURIComponent(key);
+        const encodedValue = encodeURIComponent(data[key]);
+        formBody.push(`${encodedKey}=${encodedValue}`);
+    });
+    formBody = formBody.join('&');
+    return formBody;
 }

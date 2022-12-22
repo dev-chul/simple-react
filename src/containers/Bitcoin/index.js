@@ -19,7 +19,7 @@ export default function Home() {
     const ws = useRef(null);
 
     const sampleRequest = () => {
-        request('/hello', {}).then(res => {
+        request('/hello', {}, 'cdn').then(res => {
             if (res.code === '0000') {
                 setName(res.name);
             }

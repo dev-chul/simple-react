@@ -1,8 +1,35 @@
 //import React, { useState, useEffect, useRef } from 'react';
 
+import request, { urlencoded } from '@/utils/request';
+
 import './home.css';
 
 export default function Home() {
+    const doLogin = () => {
+        console.log('doLogin!!');
+        const formData = {
+            grant_type: 'password',
+            username: 'user',
+            password: 'pass',
+            scope: 'read_profile',
+        };
+
+        request(
+            '/oauth/token',
+            {
+                method: 'post',
+                headers: {
+                    Authorization: 'Basic Y2xpZW50OnNlY3JldA==',
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: urlencoded(formData),
+            },
+            'oauth',
+        ).then(res => {
+            console.log(res);
+        });
+    };
+
     return (
         <div className="homeBody App-header">
             <div id="wrap">
@@ -27,7 +54,7 @@ export default function Home() {
                         placeholder="Password"
                     />
                 </form>
-                <button className="signin" type="button">
+                <button className="signin" type="button" onClick={doLogin}>
                     Sign In
                 </button>
                 <h5>Forget your password?</h5>

@@ -125,12 +125,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     background: #323232;
 }
 
 .typing.animate {
-    width: 21ch;
+    width: 39ch;
     border-right: 0.1em solid black;
     font-family: monospace;
     font-size: 1em;

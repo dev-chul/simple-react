@@ -1,5 +1,11 @@
-//import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
+
 import { plusCounter } from '../../modules/counter';
 import { getToken } from '../../modules/auth';
 
@@ -12,6 +18,8 @@ export default function Home() {
 
     const { count } = useSelector(state => state.counter);
     const { accessToken } = useSelector(state => state.auth);
+
+    const [open, setOpen] = useState(false);
 
     const increse = () => {
         // store에 있는 state 바꾸는 함수 실행
@@ -55,36 +63,70 @@ export default function Home() {
 
     //if (accessToken === '') {
     return (
-        <div className="homeBody">
-            <div id="wrap">
-                <div id="icon">
-                    <i className="fas fa-user"></i>
+        <>
+            <Box sx={{ width: '100%' }}>
+                <Collapse in={open}>
+                    <Alert
+                        variant="filled"
+                        severity="error"
+                        sx={{ mb: 2 }}
+                        action={
+                            <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => {
+                                    setOpen(false);
+                                }}
+                            >
+                                <CloseIcon fontSize="inherit" />
+                            </IconButton>
+                        }
+                    >
+                        현재 제공되지 않는 기능입니다!
+                    </Alert>
+                </Collapse>
+            </Box>
+            <div className="homeBody">
+                <div id="wrap">
+                    <div id="icon">
+                        <i className="fas fa-user"></i>
+                    </div>
+                    <div className="login">
+                        <h3 className="active">Sign In</h3>
+                        <h3
+                            onClick={() => {
+                                setOpen(true);
+                            }}
+                            role="presentation"
+                        >
+                            Sign Up
+                        </h3>
+                    </div>
+                    <form action="">
+                        <input
+                            type="text"
+                            className="text"
+                            name="username"
+                            placeholder="Username"
+                            defaultValue={'user'}
+                        />
+                        <input
+                            type="password"
+                            className="text"
+                            name="password"
+                            placeholder="Password"
+                            defaultValue={'pass'}
+                        />
+                    </form>
+                    <button className="signin" type="button" onClick={increse}>
+                        Sign In {count}
+                    </button>
+                    <h5>Forget your password?</h5>
+                    <h5>AccessToken : {accessToken}</h5>
                 </div>
-                <div className="login">
-                    <h3 className="active">Sign In</h3>
-                    <h3>Sign Up</h3>
-                </div>
-                <form action="">
-                    <input
-                        type="text"
-                        className="text"
-                        name="username"
-                        placeholder="Username"
-                    />
-                    <input
-                        type="text"
-                        className="text"
-                        name="password"
-                        placeholder="Password"
-                    />
-                </form>
-                <button className="signin" type="button" onClick={increse}>
-                    Sign In {count}
-                </button>
-                <h5>Forget your password?</h5>
-                <h5>AccessToken : {accessToken}</h5>
             </div>
-        </div>
+        </>
     );
     //}
 }

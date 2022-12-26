@@ -73,6 +73,7 @@ export default function NaviBar() {
                 />
             ),
             onClick: () => {
+                dispatch(getMenu(2));
                 handleOnClick('bitcoin');
             },
         },
@@ -93,7 +94,7 @@ export default function NaviBar() {
             <BottomNavigation
                 items={bottomNavItems}
                 defaultSelected={idx}
-                onItemClick={item => console.log(item)}
+                //onItemClick={item => console.log(item)}
             />
 
             <Menu

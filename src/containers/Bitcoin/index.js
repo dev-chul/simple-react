@@ -59,17 +59,9 @@ export default function Home() {
         getCurrency();
 
         ws.current = new WebSocket(webSocketUrl);
-        ws.current.onopen = () => {
-            console.log('onopen');
-        };
-        ws.current.onclose = error => {
-            console.log('onclose');
-            console.error(error);
-        };
-        ws.current.onerror = error => {
-            console.log('onerror');
-            console.error(error);
-        };
+        ws.current.onopen = () => {};
+        ws.current.onclose = error => {};
+        ws.current.onerror = error => {};
         ws.current.onmessage = evt => {
             const data = JSON.parse(evt.data);
             setTicker(data.c);

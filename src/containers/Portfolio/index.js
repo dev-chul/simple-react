@@ -25,7 +25,7 @@ export default function Portfolio() {
                     </section>
                     <section className="chart">
                         <div className="rating-bar-1 rating-large"></div>
-                        <div className="rating-bar-2 rating-large"></div>
+                        <div className="rating-bar-2 rating-xlarge"></div>
                     </section>
                     <footer className="article-footer">
                         <ul className="article-links">

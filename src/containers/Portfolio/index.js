@@ -7,7 +7,7 @@ export default function Portfolio() {
                 <article className="article tile">
                     <div className="article-image-1"></div>
                     <section className="article-body">
-                        <p className="datestamp">2022</p>
+                        <p className="datestamp">2021</p>
                         <p className="article-tags">
                             [Fornt-End] Vue.JS, WEBPACK
                             <br />

@@ -1,0 +1,205 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+/*  COLORS  */
+$x-light-gray: #f1f2f3;
+$light-gray: #a7aab0;
+$med-gray: #636568;
+$dark-gray: #2f3032;
+$link-color: #66a5e9;
+$link-hover-color: #4785c7;
+
+/* BASE */
+.portfolio-wrap base {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    background: $x-light-gray;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 100%;
+    color: $med-gray;
+    padding: 20px;
+}
+.portfolio-wrap p {
+    line-height: 1.5em;
+}
+.portfolio-wrap a {
+    text-decoration: none;
+}
+
+/* ARTICLE TILES */
+.portfolio-wrap article {
+    background: #fff;
+    border-radius: 2px;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.075);
+}
+.portfolio-wrap .article-image {
+    background: url(https://picsum.photos/id/1062/400/220);
+    background-position: center;
+    border-radius: 2px 2px 0 0;
+    height: 220px;
+    max-width: 100%;
+}
+.portfolio-wrap .datestamp {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 2px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    font-size: 0.68em;
+    position: absolute;
+    top: 197px;
+    right: 0;
+    border-radius: 2px 0 0 0;
+}
+.portfolio-wrap .article-body {
+    padding: 24px 30px 0;
+}
+.portfolio-wrap .article-heading {
+    color: $dark-gray;
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 16px;
+}
+.portfolio-wrap .article-contetns {
+    color: $dark-gray;
+}
+.portfolio-wrap .article-tags {
+    color: $light-gray;
+    font-size: 0.8125em;
+    margin-bottom: 0.8125em;
+}
+.portfolio-wrap .article-footer {
+    border-top: 1px solid $x-light-gray;
+    margin-top: 25px;
+    padding: 1em 30px;
+}
+.portfolio-wrap .article-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    & li {
+        display: inline-block;
+        margin: 0 4px 2px 0;
+    }
+    & a {
+        color: #fff;
+        background: $link-color;
+        border-radius: 2px;
+        font-size: 0.6875rem;
+        padding: 3px 10px;
+        transition: background 0.3s ease;
+        &:hover {
+            background: $link-hover-color;
+            text-decoration: none;
+        }
+    }
+}
+
+/* BAR CHARTS */
+.portfolio-wrap .chart {
+    -webkit-backface-visibility: hidden; /*Fix for blink bug*/
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 220px;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    &:hover {
+        opacity: 1;
+        [class*='rating-bar'] {
+            -webkit-animation: grow 0.5s ease forwards;
+            -moz-animation: grow 0.5s ease forwards;
+            -o-animation: grow 0.5s ease forwards;
+            animation: grow 0.5s ease forwards;
+        }
+    }
+}
+
+[class*='rating-bar'] {
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 10px;
+    height: 50px;
+    color: #fff;
+    text-align: right;
+    white-space: nowrap;
+    font-size: 11px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    &:after {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        font-weight: bold;
+    }
+    &:hover {
+        opacity: 1;
+    }
+}
+
+$bars: '프로젝트 규모' #4ecdc4 50%, '담당 역할' #ff6b6b 50%;
+
+@each $bar in $bars {
+    $index: index($bars, $bar);
+    .rating-bar-#{$index} {
+        background-color: nth($bar, 2);
+        &:before {
+            content: nth($bar, 1);
+        }
+    }
+}
+
+@-webkit-keyframes grow {
+    0% {
+        width: 0px;
+    }
+}
+@-moz-keyframes grow {
+    0% {
+        width: 0px;
+    }
+}
+@-o-keyframes grow {
+    0% {
+        width: 0px;
+    }
+}
+@keyframes grow {
+    0% {
+        width: 0px;
+    }
+}
+
+.portfolio-wrap .rating-small {
+    width: 25%;
+    &:after {
+        content: ' SMALL';
+    }
+}
+.portfolio-wrap .rating-medium {
+    width: 50%;
+    &:after {
+        content: ' MEDIUM';
+    }
+}
+.portfolio-wrap .rating-large {
+    width: 75%;
+    &:after {
+        content: ' LARGE';
+    }
+}
+.portfolio-wrap .rating-xlarge {
+    width: 100%;
+    &:after {
+        content: ' X-LARGE';
+    }
+}

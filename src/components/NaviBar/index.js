@@ -10,7 +10,7 @@ import './NaviBar.css';
 
 import {
     HomeOutlined,
-    BellOutlined,
+    UserOutlined,
     MenuOutlined,
     CalendarOutlined,
     CalculatorOutlined,
@@ -41,6 +41,16 @@ export default function NaviBar() {
             },
         },
         {
+            title: 'Portfolio',
+            icon: <UserOutlined style={{ fontSize: '18px' }} />,
+            activeIcon: (
+                <UserOutlined style={{ fontSize: '18px', color: '#fff' }} />
+            ),
+            onClick: () => {
+                handleOnClick('portfolio');
+            },
+        },
+        {
             title: 'Bitcoin',
             icon: (
                 <img
@@ -59,13 +69,6 @@ export default function NaviBar() {
             onClick: () => {
                 handleOnClick('bitcoin');
             },
-        },
-        {
-            title: 'Notifications',
-            icon: <BellOutlined style={{ fontSize: '18px' }} />,
-            activeIcon: (
-                <BellOutlined style={{ fontSize: '18px', color: '#fff' }} />
-            ),
         },
         {
             title: 'Menu',

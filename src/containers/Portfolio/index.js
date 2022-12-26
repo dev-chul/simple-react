@@ -1,6 +1,10 @@
+import React, { useEffect } from 'react';
+
 import './portfolio.scss';
 
 export default function Portfolio() {
+    useEffect(() => {}, []);
+
     return (
         <div className="portfolio-wrap">
             <div className="base">
@@ -24,6 +28,7 @@ export default function Portfolio() {
                         </p>
                     </section>
                     <section className="chart">
+                        <p className="datestamp">클릭</p>
                         <div className="rating-bar-1 rating-large"></div>
                         <div className="rating-bar-2 rating-xlarge"></div>
                     </section>
@@ -64,6 +69,7 @@ export default function Portfolio() {
                         </p>
                     </section>
                     <section className="chart">
+                        <p className="datestamp">클릭</p>
                         <div className="rating-bar-1 rating-small"></div>
                         <div className="rating-bar-2 rating-large"></div>
                     </section>
@@ -87,6 +93,7 @@ export default function Portfolio() {
                         </p>
                     </section>
                     <section className="chart">
+                        <p className="datestamp">클릭</p>
                         <div className="rating-bar-1 rating-medium"></div>
                         <div className="rating-bar-2 rating-large"></div>
                     </section>
@@ -123,6 +130,7 @@ export default function Portfolio() {
                         </p>
                     </section>
                     <section className="chart">
+                        <p className="datestamp">클릭</p>
                         <div className="rating-bar-1 rating-medium"></div>
                         <div className="rating-bar-2 rating-large"></div>
                     </section>

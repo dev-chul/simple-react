@@ -43,6 +43,7 @@ export default function Home() {
         });
     };
 
+    /*
     if (accessToken !== '') {
         return (
             <div className="homeBody welcome">
@@ -50,39 +51,40 @@ export default function Home() {
             </div>
         );
     }
+    */
 
-    if (accessToken === '') {
-        return (
-            <div className="homeBody">
-                <div id="wrap">
-                    <div id="icon">
-                        <i className="fas fa-user"></i>
-                    </div>
-                    <div className="login">
-                        <h3 className="active">Sign In</h3>
-                        <h3>Sign Up</h3>
-                    </div>
-                    <form action="">
-                        <input
-                            type="text"
-                            className="text"
-                            name="username"
-                            placeholder="Username"
-                        />
-                        <input
-                            type="text"
-                            className="text"
-                            name="password"
-                            placeholder="Password"
-                        />
-                    </form>
-                    <button className="signin" type="button" onClick={increse}>
-                        Sign In {count}
-                    </button>
-                    <h5>Forget your password?</h5>
-                    <h5>AccessToken : {accessToken}</h5>
+    //if (accessToken === '') {
+    return (
+        <div className="homeBody">
+            <div id="wrap">
+                <div id="icon">
+                    <i className="fas fa-user"></i>
                 </div>
+                <div className="login">
+                    <h3 className="active">Sign In</h3>
+                    <h3>Sign Up</h3>
+                </div>
+                <form action="">
+                    <input
+                        type="text"
+                        className="text"
+                        name="username"
+                        placeholder="Username"
+                    />
+                    <input
+                        type="text"
+                        className="text"
+                        name="password"
+                        placeholder="Password"
+                    />
+                </form>
+                <button className="signin" type="button" onClick={increse}>
+                    Sign In {count}
+                </button>
+                <h5>Forget your password?</h5>
+                <h5>AccessToken : {accessToken}</h5>
             </div>
-        );
-    }
+        </div>
+    );
+    //}
 }

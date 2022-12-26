@@ -1,9 +1,8 @@
 import React, { useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
-import BottomNavigation from 'reactjs-bottom-navigation';
-
+import { useSelector, useDispatch } from 'react-redux';
 import { Menu, SubMenu, Item } from 'burger-menu';
+import BottomNavigation from 'reactjs-bottom-navigation';
 
 import 'burger-menu/lib/index.css';
 import './NaviBar.css';
@@ -18,7 +17,12 @@ import {
     CodeSandboxOutlined,
 } from '@ant-design/icons';
 
+import { getMenu } from '../../modules/navi';
+
 export default function NaviBar() {
+    const dispatch = useDispatch();
+    const { idx } = useSelector(state => state.navi);
+
     const navigate = useNavigate();
     const handleOnClick = useCallback(
         appId => {
@@ -37,6 +41,7 @@ export default function NaviBar() {
                 <HomeOutlined style={{ fontSize: '18px', color: '#fff' }} />
             ),
             onClick: () => {
+                dispatch(getMenu(0));
                 handleOnClick('');
             },
         },
@@ -47,6 +52,7 @@ export default function NaviBar() {
                 <UserOutlined style={{ fontSize: '18px', color: '#fff' }} />
             ),
             onClick: () => {
+                dispatch(getMenu(1));
                 handleOnClick('portfolio');
             },
         },
@@ -86,7 +92,7 @@ export default function NaviBar() {
         <div>
             <BottomNavigation
                 items={bottomNavItems}
-                defaultSelected={0}
+                defaultSelected={idx}
                 onItemClick={item => console.log(item)}
             />
 

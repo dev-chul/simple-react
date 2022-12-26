@@ -39,13 +39,38 @@ $link-hover-color: #4785c7;
     position: relative;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.075);
 }
-.portfolio-wrap .article-image {
-    background: url(https://picsum.photos/id/1062/400/220);
+.portfolio-wrap .article-image-1 {
+    background: url(../../../public/images/shplay.jpg);
     background-position: center;
     border-radius: 2px 2px 0 0;
     height: 220px;
     max-width: 100%;
 }
+
+.portfolio-wrap .article-image-2 {
+    background: url(../../../public/images/rocomo.jpg);
+    background-position: center;
+    border-radius: 2px 2px 0 0;
+    height: 220px;
+    max-width: 100%;
+}
+
+.portfolio-wrap .article-image-3 {
+    background: url(../../../public/images/skt.jpg);
+    background-position: center;
+    border-radius: 2px 2px 0 0;
+    height: 220px;
+    max-width: 100%;
+}
+
+.portfolio-wrap .article-image-4 {
+    background: url(../../../public/images/lotte.jpg);
+    background-position: center;
+    border-radius: 2px 2px 0 0;
+    height: 220px;
+    max-width: 100%;
+}
+
 .portfolio-wrap .datestamp {
     display: inline-block;
     padding: 3px 8px;
@@ -54,7 +79,7 @@ $link-hover-color: #4785c7;
     color: #fff;
     font-size: 0.68em;
     position: absolute;
-    top: 197px;
+    top: 187px;
     right: 0;
     border-radius: 2px 0 0 0;
 }

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import request from '@/utils/request';
 import { setLoading } from '../../modules/loading';
 
 export default function Meal() {
     const dispatch = useDispatch();
 
-    const [geoX, setGeoX] = useState(0);
-    const [geoY, setGeoY] = useState(0);
+    const [myAddr, setMyAddr] = useState('');
 
     useEffect(() => {
         dispatch(setLoading(true));
@@ -20,8 +20,22 @@ export default function Meal() {
     }, []);
 
     const onSuccess = geoData => {
-        setGeoX(geoData.coords.longitude);
-        setGeoY(geoData.coords.latitude);
+        const params = {
+            coords: `${geoData.coords.longitude},${geoData.coords.latitude}`,
+        };
+
+        request('/public/myGeoLocation', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(params),
+        }).then(res => {
+            console.log(res);
+            setMyAddr(res.results[0].region.area3.name);
+            console.log(res.results[0].region);
+        });
+
         dispatch(setLoading(false));
     };
 
@@ -31,8 +45,13 @@ export default function Meal() {
 
     return (
         <div>
-            x: {geoX} <br />
-            y: {geoY}
+            {myAddr ? (
+                <div style={{ textAlign: 'center' }}>
+                    {myAddr} 근처 맛집 추천드려요.
+                </div>
+            ) : (
+                <div></div>
+            )}
         </div>
     );
 }

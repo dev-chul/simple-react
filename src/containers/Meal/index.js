@@ -36,7 +36,7 @@ export default function Meal() {
             console.log(res.results[0].region);
         });
 
-        dispatch(setLoading(false));
+        //dispatch(setLoading(false));
     };
 
     const onError = err => {

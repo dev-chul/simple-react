@@ -40,13 +40,15 @@ module.exports = {
                 use: ['@svgr/webpack'],
             },
             {
-                test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                test: /\.(png|jpe?g|gif|webp)$/i,
                 use: {
-                    loader: 'file-loader',
+                    loader: 'url-loader',
                     options: {
-                        name: '[name].[ext]',
+                        esModule: false,
+                        name: '[name].[ext]?[hash]',
                     },
                 },
+                type: 'javascript/auto',
             },
         ],
     },

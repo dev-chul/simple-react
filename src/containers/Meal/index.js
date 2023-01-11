@@ -31,7 +31,6 @@ export default function Meal() {
 
     return (
         <div>
-            <br />
             x: {geoX} <br />
             y: {geoY}
         </div>

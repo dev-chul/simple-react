@@ -7,11 +7,20 @@ export const setLoading = param => {
     };
 };
 
+const setBodyScroll = action => {
+    if (action.data === true) {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = 'unset';
+    }
+};
+
 const initialState = {
     isLoading: false,
 };
 
 function loadingReducer(state = initialState, action = {}) {
+    setBodyScroll(action);
     switch (action.type) {
         case SET_LOADING:
             return {

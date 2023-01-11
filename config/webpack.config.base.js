@@ -39,6 +39,15 @@ module.exports = {
                 resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
                 use: ['@svgr/webpack'],
             },
+            {
+                test: /\.(png|jpe?g|gif|svg|webp)$/i,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                    },
+                },
+            },
         ],
     },
 

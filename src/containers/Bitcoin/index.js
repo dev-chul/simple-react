@@ -60,8 +60,12 @@ export default function Home() {
 
         ws.current = new WebSocket(webSocketUrl);
         ws.current.onopen = () => {};
-        ws.current.onclose = error => {};
-        ws.current.onerror = error => {};
+        ws.current.onclose = error => {
+            console.error(error);
+        };
+        ws.current.onerror = error => {
+            console.error(error);
+        };
         ws.current.onmessage = evt => {
             const data = JSON.parse(evt.data);
             setTicker(data.c);

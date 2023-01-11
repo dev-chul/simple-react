@@ -1,0 +1,19 @@
+.loadingDiv {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #474a5c;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 70%;
+}
+
+.loadingText {
+    font: 1rem 'Noto Sans KR';
+    text-align: center;
+}

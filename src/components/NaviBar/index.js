@@ -46,37 +46,38 @@ export default function NaviBar() {
             },
         },
         {
+            title: 'Meal',
+            icon: (
+                <img
+                    src="./images/icons8-rice-bowl-96.png"
+                    style={{ width: '1em', height: '1em' }}
+                    alt="btc"
+                />
+            ),
+            activeIcon: (
+                <img
+                    src="./images/icons8-rice-bowl-96.png"
+                    style={{ width: '1em', height: '1em' }}
+                    alt="btc"
+                />
+            ),
+            onClick: () => {
+                dispatch(getMenu(1));
+                handleOnClick('meal');
+            },
+        },
+        {
             title: 'Portfolio',
             icon: <UserOutlined style={{ fontSize: '18px' }} />,
             activeIcon: (
                 <UserOutlined style={{ fontSize: '18px', color: '#fff' }} />
             ),
             onClick: () => {
-                dispatch(getMenu(1));
+                dispatch(getMenu(2));
                 handleOnClick('portfolio');
             },
         },
-        {
-            title: 'Bitcoin',
-            icon: (
-                <img
-                    src="./images/btc.png"
-                    style={{ width: '1em', height: '1em' }}
-                    alt="btc"
-                />
-            ),
-            activeIcon: (
-                <img
-                    src="./images/btc_active.png"
-                    style={{ width: '1em', height: '1em' }}
-                    alt="btc"
-                />
-            ),
-            onClick: () => {
-                dispatch(getMenu(2));
-                handleOnClick('bitcoin');
-            },
-        },
+
         {
             title: 'Menu',
             icon: <MenuOutlined style={{ fontSize: '18px' }} />,
@@ -116,6 +117,19 @@ export default function NaviBar() {
                             itemKey={'calc'}
                             text={'Calculator'}
                             icon={<CalculatorOutlined />}
+                        ></Item>
+                    </Link>
+                    <Link to={'/bitcoin'}>
+                        <Item
+                            itemKey={'bitcoin'}
+                            text={'Bitcoin'}
+                            icon={
+                                <img
+                                    src="./images/btc.png"
+                                    style={{ width: '1em', height: '1em' }}
+                                    alt="btc"
+                                />
+                            }
                         ></Item>
                     </Link>
                     <SubMenu title="Sites">

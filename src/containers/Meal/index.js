@@ -95,7 +95,7 @@ export default function Meal() {
                     title={item.place_name}
                     description={item.road_address_name}
                 />
-                <p>거리: {item.distance}m</p>
+                <p style={{ marginBottom: '5px' }}>거리: {item.distance}m</p>
                 <p style={{ padding: '0px', margin: '0px' }}>
                     지도:{' '}
                     <a href={item.place_url} target="_blank" rel="noreferrer">

@@ -13,7 +13,12 @@ export default function Meal() {
         dispatch(setLoading(true));
         if ('geolocation' in navigator) {
             /* 위치정보 사용 가능 */
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            try {
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            } catch (e) {
+                console.error(e);
+                dispatch(setLoading(false));
+            }
         } else {
             /* 위치정보 사용 불가능 */
         }
@@ -31,9 +36,7 @@ export default function Meal() {
             },
             body: JSON.stringify(params),
         }).then(res => {
-            console.log(res);
             setMyAddr(res.results[0].region.area3.name);
-            console.log(res.results[0].region);
             dispatch(setLoading(false));
         });
     };

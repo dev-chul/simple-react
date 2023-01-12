@@ -24,5 +24,6 @@ module.exports = {
         'prefer-destructuring': [0],
         'spaced-comment': [0],
         'no-use-before-define': [0],
+        'object-shorthand': [0],
     },
 };

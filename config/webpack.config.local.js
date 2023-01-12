@@ -15,7 +15,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     plugins: [
         new HtmlWebpackPlugin({ template: './public/index.html' }),
         new webpack.DefinePlugin({
-            APP_ENV: require('../env/dev.env'),
+            APP_ENV: require('../env/local.env'),
         }),
     ],
 });

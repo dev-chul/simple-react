@@ -34,9 +34,8 @@ export default function Meal() {
             console.log(res);
             setMyAddr(res.results[0].region.area3.name);
             console.log(res.results[0].region);
+            dispatch(setLoading(false));
         });
-
-        dispatch(setLoading(false));
     };
 
     const onError = err => {
